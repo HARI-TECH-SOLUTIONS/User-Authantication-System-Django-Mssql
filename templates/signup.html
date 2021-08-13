@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+signup
+
+{% endblock %}
+
+{% block body %}
+
+<form method="POST" action="/u/signup/">
+    {% csrf_token %}
+    <div>
+        <div>
+            <label>User Name: </label><br>
+            <input type="text" placeholder="Enter your User Name" name="uname" required>
+        </div><br>
+
+        <div>
+            <label>First Name : </label><br>
+            <input type="text" placeholder="Enter your Full Name " name="fname" required>
+        </div><br>
+
+        <div>
+            <label>Last Name : </label><br>
+            <input type="text" placeholder="Enter your Full Name " name="lname" required>
+        </div><br>
+
+        <div>
+            <label>Email Id : </label><br>
+            <input type="email" placeholder="Enter your mail id" name="email" required>
+        </div><br>
+
+        <div>
+            <label for="psw">Password : </label><br>
+            <input type="password" placeholder="Enter Password" id="pswd1" name="password" required></br>
+        </div><br>
+
+        <div>
+            <label for="psw">Re-enter Password : </label><br>
+            <input type="password" placeholder="Re-Enter Password" id="pswd2" name="rpassword" required></br>
+        </div><br>
+
+        <button type="submit">Create</button>
+    </div>
+</form>
+<br><br>
+
+<div>
+    {% for message in messages %}
+    <h4>{{ message }}</h4>
+    {% endfor %}
+</div>
+
+<a href="/u/login/">Login</a>
+
+{% endblock %}

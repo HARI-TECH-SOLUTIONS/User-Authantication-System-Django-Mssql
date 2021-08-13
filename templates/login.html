@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+login
+
+{% endblock %}
+
+{% block body %}
+
+
+<form action="/u/login/" method="POST">
+    {% csrf_token %}
+
+    <div>
+        <div>
+            <label>User Name : </label><br>
+            <input type="text" placeholder="Enter User Name or Email" name="uname" required>
+        </div><br>
+
+        <div>
+            <label>Password : </label><br>
+            <input type="password" placeholder="Enter Password" name="password" required></br>
+        </div><br>
+
+
+        <button type="submit">Login</button>
+
+    </div>
+
+
+</form>
+
+<div>
+    {% for message in messages %}
+    <h4>{{ message }}</h4>
+    {% endfor %}
+</div><br><br>
+
+<a href="/u/signup/">Register</a>
+
+{% endblock %}

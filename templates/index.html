@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+index
+
+{% endblock %}
+
+{% block body %}
+{% csrf_token %}
+<h1>Please Search the URL You Want</h1>
+
+<div>
+    {% for message in messages %}
+    <h4>{{ message }}</h4>
+    {% endfor %}
+</div>
+
+
+{% if user.is_authenticated %}
+<li>Helloo, {{user.first_name}}</li><br><br><br>
+<li><a href="/u/logout">Logout</a></li>
+{% endif %}
+
+
+{% endblock %}

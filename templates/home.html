@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+login
+
+{% endblock %}
+
+{% block body %}
+
+{% if user.is_authenticated %}
+<li>Helloo, {{user.first_name}}</li><br><br><br>
+{% endif %}
+
+<div>
+    <ul>
+        {% for username in user_details %}
+        <li>{{username}}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+
+<li><a href="/u/logout">Logout</a></li>
+
+
+{% endblock %}
